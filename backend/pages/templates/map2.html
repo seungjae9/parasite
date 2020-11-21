@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+	<div id="NPMS" style="width: 12px;"> 
+		<h1 style="font-size: 300%;">병해충 예측 지도</h1>
+		<img src="http://ncpms.rda.go.kr/images/api/fore/icon_help_api.gif" style="width:62px; height:20px; border:0px; margin-top:2px; margin-left:5px; cursor:pointer;" onclick="javascript:openHelp();" />
+		<div class="tabelRound"> 
+			<table id="oMenuInsertTable" class="grid topLine" border="1" cellSpacing="0" cellPadding="0" name="menuInsertTable"> 
+				<colgroup> 
+					<col width="20%"/> 
+					<col width="30%"/> 
+					<col width="20%"/> 
+					<col width="30%"/> 
+				</colgroup> 
+				<tbody> 
+				<tr> 
+					<th colspan="4" class="bgbr" style="height:15px"><div id="npms_api_map_desc" style="font-size:12px;">정보 제공 기간 내의 기간을 선택해주세요.</div></th> 
+				</tr>
+				<tr> 
+					<th class="bgbr" style="height:15px">\uC791\uBAA9</th> 
+					<td>'+kncrSelect+'</td> 
+					<th class="bgbr">\uC815\uBCF4\uC81C\uACF5\uAE30\uAC04</th> 
+					<td><div id="info_period_div"></div></td> 
+				</tr> 
+				<tr> 
+					<th class="bgbr" style="height:15px">\uBCD1\uD574\uCDA9\uBA85</th> 
+					<td><div id="dbyhsMdlCode_div"></div></td> 
+					<th class="bgbr">\uC608\uCE21\uC2DC\uAC04</th> 
+					<td> 
+						<input type="text" name="NpmsForeDate" value="ㅇㄴㅁ" style="width:70px;height:20px" readonly> 
+						<img id="npmsCalBtn" src="http://ncpms.rda.go.kr/images/icon/calendar2.gif" width="23" height="25" alt="\uB2EC\uB825\uC544\uC774\uCF58" align="top" style="cursor:pointer;"> 
+						<span id="foreHour"></span> 
+					</td>
+				</tr> 
+				</tbody> 
+			</table> 
+		</div> 
+	</div> 
+
+</body>
+</html>

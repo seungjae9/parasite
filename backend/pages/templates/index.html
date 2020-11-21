@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<h1>index</h1>
+<h1>
+    <a href="{% url 'pages:map' %}">지도로가자</a>
+</h1>
+<h1>
+    <a href="{% url 'pages:datas' %}">농사로데이터전체조회</a>
+</h1>
+<h1>
+    <a href="{% url 'pages:datas_detail_list' %}">농사로데이터디테일확인</a>
+</h1>
+<h1>
+    <a href="{% url 'pages:datas2' %}">데이터2 조회</a>
+</h1>
+<h1>
+    <a href="{% url 'pages:datas3' %}">전체 병해충 데이터</a>
+</h1>
+<h1>
+    <a href="{% url 'pages:datas4' %}">농약 전체 데이터</a>
+</h1>
+<h1>
+    <form action="pages/search/" method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" placeholder="작물이름" name='search_crop'>
+        <input type="submit">
+    </form>
+</h1>
+<h1>
+    <form action="pages/고추/crop/탄저병/sicksearch/" method="GET" enctype="multipart/form-data">
+        <input type="submit">
+    </form>
+</h1>
+<h1>
+    <a href="{% url 'pages:searchtest' %}">조회테스트용</a>
+</h1>
+{% endblock %}

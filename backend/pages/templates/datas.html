@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>datas.html</h1>
+{% for data in datas %}
+    <a href="{% url 'pages:datas2_detail' data.id %}">{{data.sick_name}}</a>
+{% endfor %}
+{% endblock %}

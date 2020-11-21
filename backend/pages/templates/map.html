@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko">
+<head>
+{% load static %}
+<meta name="keywords" content="농촌진흥청, 병해충발생정보, OpenAip" charset="utf-8" />
+<title>녹색기술 청색마을 함께하는 농촌진흥청(병해충예측정보 OpenAip Service)</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<script type="text/javascript" src="http://ncpms.rda.go.kr/npmsAPI/api/openapiFore.jsp?googleMapKey=AIzaSyDJqEIUWbu1Au2AUXDSYd3RnFaJgxAorfk"></script>
+<!-- <script type="text/javascript" src="./openapi_fore_ajax_map.js"></script> -->
+<script type="text/javascript" src="{% static 'openapi_fore_ajax_map.js' %}"></script>
+<script type="text/javascript">
+        npmsJ(document).ready(function() {
+		// Api Key
+		setNpmsOpenApiKey( "2020bc251a4e18ca0830201bff4ebe390037" );
+		
+		// 서비스 코드
+		setNpmsOpenApiServiceCode("SVC31");
+		
+		// 크로스 도메인 처리를 위한 콜백페이지, 꼭 서비스 도메인으로 수정해주세요.
+		// 꼭 http 요청으로 보낼것!
+        //setNpmsOpenApiProxyUrl("http://7e97851564ca.ngrok.io/map2");
+        setNpmsOpenApiProxyUrl("http://k02c1021.p.ssafy.io:80/pages/map2/");
+		
+		// 넓이 조절 : OpenAPI 특성상 600px 이하로는 조절이 안됨
+		setNpmsOpenAPIWidth(window.innerWidth);
+
+		// 위치 지정 : setRegion( [지점명 혹은 주소], [줌 레벨] )
+		// 지도의 중심이되는 지명 혹은 주소를 넣어주세요.
+		// 줌 레벨을 변경하시어 보여지고 싶은만큼의 줌 레벨을 설정하세요.(예 : 도단위는 9, 시군 단위는 11)
+		setRegion("전라남도 남원시 용담리", 14);
+		
+		// 서비스 작목
+		// 작목코드 - 감귤:FT060614,감자:FC050501,고추:VC011205,논벼:FC010101,배:FT010602,사과:FT010601,파:VC041202,포도:FT040603
+		// 서비스 하고 싶은 작목코드를 cropList 배열에 추가하여 주세요. 추가된 순서로 목록이 보여집니다.
+		var cropList = new Array(
+			'FT060614',//감귤
+			'FC050501',//감자
+			'VC011205',//고추
+			'FC010101',//논벼
+			'FT010602',//배
+			'FT010601',//사과
+			'VC041202',//파
+			'FT040603'//포도
+			);
+		setCropList(cropList);
+		
+		// 지도 움직임 여부 설정
+		setMoveMatAt( false );
+		
+		// 서비스요청
+		actionMapInfo("defaultTag");
+	});
+</script>
+</head>
+<body>
+    <div id="defaultTag"></div>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

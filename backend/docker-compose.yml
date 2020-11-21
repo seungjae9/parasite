@@ -1,0 +1,14 @@
+version : '3'
+services: 
+  django: 
+    build:
+      context: .
+      dockerfile : Dockerfile
+    command: python manage.py runserver 0.0.0.0:80
+    volumes:
+      - .:/app
+    ports:
+      - "80:80"
+    environment:
+      - SECRET_KEY="v$pa78r4e84-6@sr#0g+dqk!%evn(mk$i9i48p&ckz5qngmolv"
+      - DB_NAME="db.sqlite3"
